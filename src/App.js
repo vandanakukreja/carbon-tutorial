@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
+import './App.scss';
+import { Button } from 'carbon-components-react';
+import { Content } from 'carbon-components-react/lib/components/UIShell';
+import TutorialHeader from './components/TutorialHeader';
+import { Route, Switch } from 'react-router-dom';
+import landingPage from './content/landingPage';
+import devicePage from './content/devicePage';
+import userPage from './content/userPage';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        Hello Carbon! Well, not quite yet. This is the starting point for the
-        Carbon tutorial.
-      </div>
+      <>
+        <TutorialHeader />
+        <Content>
+          <Switch>
+            <Route exact path="/" component={landingPage} />
+            <Route path="/devices" component={devicePage} />
+            <Route path="/users" component={userPage} />
+          </Switch>
+        </Content>
+      </>
     );
   }
 }
